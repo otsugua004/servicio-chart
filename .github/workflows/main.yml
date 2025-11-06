@@ -1,4 +1,4 @@
-name: CI-DockerBuild
+name: ci-servicio-chart
 
 on: 
   push:
