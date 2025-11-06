@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app:  {{ .Values.name }}
+    areanegocio: tecnologia
+spec:
+  replicas: {{ .Values.container.replicas }}
+  selector:
+    matchLabels:
+      app:  {{ .Values.name }}
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 1
+  template:
+    metadata:
+      labels:
+        app:  {{ .Values.name }}
+    spec:
+      containers:
+      - name: principal-container
+        image:  {{ .Values.container.image }}:{{ .Values.container.tag }}
+        ports:
+        - containerPort: {{ .Values.container.port }}
+        resources:
+          requests:
+            cpu: {{ .Values.container.cpuRequests }}
+            memory: {{ .Values.container.memoryRequests }}
+          limits:
+            cpu: {{ .Values.container.cpuLimits }}
+            memory: {{ .Values.container.memoryLimits }}
+#        envFrom:
+#            - configMapRef:
+#                name: mi-configmap-{{ .Values.name }}
+#            - secretRef:
+#                name: mi-secret-{{ .Values.name }}
+        startupProbe:
+          httpGet:
+            path: /startup
+            port: {{ .Values.container.port }}
+          failureThreshold: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: {{ .Values.container.port }}
+          failureThreshold: 5
+          initialDelaySeconds: 0
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.container.port }}
+          failureThreshold: 5
+          initialDelaySeconds: 0
+          periodSeconds: 10
