@@ -4,4 +4,6 @@ metadata:
   name: {{ .Values.name }}-configmap
   namespace: {{ .Values.namespace }}
 data:
-  DATABASE: "{{ .Values.configmap.database }}"
+  DB_HOST: {{ .Values.configmap.db_host }}
+  DB_PORT: {{ .Values.configmap.db_port }}
+  DB_NAME: {{ .Values.configmap.db_name }}
