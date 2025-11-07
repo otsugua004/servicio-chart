@@ -34,7 +34,7 @@ configmap:
   SERVICIO_BACKEND_URL: "http://servicio-bdd:8080/api/bdd/"
 
 secret:
-  # plain text password; template will base64-encode when placing into `data:`
+  # plain text values; template will base64-encode when placing into `data:`
   PASSWORD: "hola"
   DB_USERNAME: "admin"
   DB_PASSWORD: "password"
