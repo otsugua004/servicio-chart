@@ -30,6 +30,8 @@ configmap:
   db_host: "postgres"
   db_port: "5432"
   db_name: "mi_basedatos"
+  servicio_backend_url: "http://servicio-backend:8080/api/info/"
+  servicio_bdd_url: "http://servicio-bdd:8080/api/bdd/"
 
 secret:
   # plain text password; template will base64-encode when placing into `data:`

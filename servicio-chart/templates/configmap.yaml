@@ -7,3 +7,6 @@ data:
   DB_HOST: {{ .Values.configmap.db_host | quote }}
   DB_PORT: {{ .Values.configmap.db_port | quote }}
   DB_NAME: {{ .Values.configmap.db_name | quote }}
+  SERVICIO_BDD_URL: {{ .Values.configmap.servicio_bdd_url | quote }}
+  SERVICIO_BACKEND_URL: {{ .Values.configmap.servicio_backend_url | quote }}
+
