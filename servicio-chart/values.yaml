@@ -28,7 +28,7 @@ hpa:
 
 configmap:
   db_host: "postgres"
-  db_port: 5432
+  db_port: "5432"
   db_name: "mi_basedatos"
 
 secret:
