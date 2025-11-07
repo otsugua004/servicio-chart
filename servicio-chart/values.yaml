@@ -27,14 +27,14 @@ hpa:
   targetCPUUtilizationPercentage: 75
 
 configmap:
-  db_host: "postgres"
-  db_port: "5432"
-  db_name: "mi_basedatos"
-  servicio_backend_url: "http://servicio-backend:8080/api/info/"
-  servicio_bdd_url: "http://servicio-bdd:8080/api/bdd/"
+  DB_HOST: "postgres"
+  DB_PORT: "5432"
+  DB_NAME: "mi_basedatos"
+  SERVICIO_BDD_URL: "http://servicio-backend:8080/api/info/"
+  SERVICIO_BACKEND_URL: "http://servicio-bdd:8080/api/bdd/"
 
 secret:
   # plain text password; template will base64-encode when placing into `data:`
-  password: "hola"
-  db_username: "admin"
-  db_password: "password"
+  PASSWORD: "hola"
+  DB_USERNAME: "admin"
+  DB_PASSWORD: "password"

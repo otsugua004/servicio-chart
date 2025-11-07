@@ -37,8 +37,6 @@ spec:
             - configMapRef:
                 name: {{ .Values.name }}-configmap
             - secretRef:
-                name: {{ .Values.name }}-database-secret
-            - secretRef:
                 name: {{ .Values.name }}-secret
         startupProbe:
           httpGet:
