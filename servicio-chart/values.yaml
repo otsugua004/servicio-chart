@@ -38,3 +38,9 @@ secret:
   PASSWORD: "hola"
   DB_USERNAME: "admin"
   DB_PASSWORD: "password"
+
+pvc:
+  storageClass: "gp3"
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi

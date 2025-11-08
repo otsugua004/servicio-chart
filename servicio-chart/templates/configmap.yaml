@@ -1,3 +1,4 @@
+{{- if .Values.configmap }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -7,4 +8,4 @@ data:
 {{- range $key, $value := .Values.configmap }}
   {{ $key | quote }}: {{ $value | quote }}
 {{- end }}
-
+{{- end }}
