@@ -6,7 +6,7 @@ metadata:
   namespace: {{ .Values.namespace }}
 spec:
   accessModes:
-     - {{ .Values.pvc.accessMode }}
+     - {{ .Values.pvc.accessModes }}
   storageClassName: {{ .Values.pvc.storageClass }}
   resources:
     requests:
