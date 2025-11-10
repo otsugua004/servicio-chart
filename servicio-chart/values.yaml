@@ -41,6 +41,5 @@ secret:
 
 pvc:
   storageClass: "gp3"
-  accessModes:
-    - ReadWriteOnce
+  accessModes: "ReadWriteOnce"
   size: 1Gi
